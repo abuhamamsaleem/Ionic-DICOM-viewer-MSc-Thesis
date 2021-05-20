@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Profile </ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--<inc-toolbar title="Profile"></inc-toolbar>-->
+<ion-content [fullscreen]="true">
+  <ion-toolbar>
+    <ion-title>{{ "PERSONAL_DATAS" | translate }}</ion-title>
+  </ion-toolbar>
+  <inc-container>
+    <ion-card class="ion-padding ion-no-margin">
+      <ion-text
+        color="primary"
+        class="ion-text-uppercase ion-padding"
+        style="padding-bottom: 0"
+      >
+        <b>{{ "SECURITY_LOGIN" | translate }}</b>
+      </ion-text>
+      <inc-fire-user></inc-fire-user>
+      <ion-item-divider
+        class="ion-margin-bottom"
+        *ngIf="practitioner"
+      ></ion-item-divider>
+      <inc-practitioner-info
+        [role]="role"
+        [practitioner]="practitioner"
+        (callUpdatePractitioner)="onCallUpdatePractitioner($event)"
+      ></inc-practitioner-info>
+    </ion-card>
+  </inc-container>
+</ion-content>

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lookup</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="main-menu" style="color: white"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!--<inc-toolbar withBack="false" title="Lookup"></inc-toolbar>-->
+
+<ion-content [fullscreen]="false" id="mainContent">
+  <ion-item>
+    <ion-label>Patient ID:</ion-label>
+    <ion-input [(ngModel)]="patientId"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Patient Name:</ion-label>
+    <ion-input [(ngModel)]="patientName"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Accession Number:</ion-label>
+    <ion-input [(ngModel)]="accessionNumber"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Study Description:</ion-label>
+    <ion-input [(ngModel)]="studyDescription"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Study Date</ion-label>
+    <ion-datetime
+      displayFormat="MM DD YYYY"
+      placeholder="Select Date"
+      [(ngModel)]="date"
+    ></ion-datetime>
+  </ion-item>
+  <div id="lookup-wrapper">
+    <ion-button
+      id="patient-search"
+      expand="block"
+      (click)="cFind(date, patientId, patientName, accessionNumber, studyDescription)"
+      >Search</ion-button
+    >
+    <ion-button expand="block" fill="outline" (click)="clearForm()"
+      >Clear</ion-button
+    >
+  </div>
+</ion-content>
+
+<!--<ion-footer>-->
+<!--  <ion-toolbar class="ion-text-center">-->
+<!--    <ion-button [fill]="'clear'">-->
+<!--      <ion-icon name="cog-outline" size="large"></ion-icon>-->
+<!--    </ion-button>-->
+<!--    <ion-button [fill]="'clear'">-->
+<!--      <ion-icon name="person-outline" size="large"></ion-icon>-->
+<!--    </ion-button>-->
+<!--  </ion-toolbar>-->
+<!--</ion-footer>-->

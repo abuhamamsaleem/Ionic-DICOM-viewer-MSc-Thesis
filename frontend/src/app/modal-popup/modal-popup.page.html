@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>instance-viewer</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="light" (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div style="width: 100%; height: 100%" id="dicomImage"></div>
+  <div
+    class="ion-justify-content-center ion-align-items-center"
+    style="display: flex"
+  >
+    <ion-button fill="clear">
+      <ion-icon slot="icon-only" name="play-back"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear">
+      <ion-icon slot="icon-only" name="play-skip-back"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" (click)="downloadAndView(instanceId)">
+      <ion-icon slot="icon-only" name="play"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear">
+      <ion-icon slot="icon-only" name="play-skip-forward"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear">
+      <ion-icon slot="icon-only" name="play-forward"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>
+<!--<ion-grid>-->
+<!--  <ion-row>-->
+<!--    <ion-col text-center> instance : {{ instance }} </ion-col>-->
+<!--    <ion-col text-center> instanceId : {{ instanceId }} </ion-col>-->
+<!--  </ion-row>-->
+<!--  <ion-row>-->
+<!--    <div style="padding: 20px">{{instanceTags | json}}</div>-->
+<!--  </ion-row>-->
+<!--  <ion-row>-->
+<!--    <ion-col text-center>-->
+<!--      <ion-button (click)="close()">Close</ion-button>-->
+<!--    </ion-col>-->
+<!--  </ion-row>-->
+<!--</ion-grid>-->

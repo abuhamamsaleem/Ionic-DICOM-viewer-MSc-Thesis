@@ -1,0 +1,11 @@
+<inc-toolbar defHref="/profile"></inc-toolbar>
+<ion-content>
+  <ion-toolbar>
+    <ion-title>{{ "EMAIL" | translate }}</ion-title>
+  </ion-toolbar>
+  <inc-container>
+    <ion-card class="ion-padding">
+      <inc-ch-email (callSave)="onCallSave($event)"></inc-ch-email>
+    </ion-card>
+  </inc-container>
+</ion-content>

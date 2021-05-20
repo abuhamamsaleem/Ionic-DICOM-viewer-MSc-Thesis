@@ -1,0 +1,30 @@
+@mixin center-content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--ion-background-color);
+}
+
+.login-card {
+  width: 100vw;
+  height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .login-card {
+    max-width: 33em;
+    min-height: 40em;
+    height: auto;
+  }
+
+  .login-centering {
+    @include center-content();
+  }
+}
+
+.center-content {
+  @include center-content();
+}

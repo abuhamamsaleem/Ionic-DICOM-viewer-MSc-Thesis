@@ -1,0 +1,13 @@
+<ion-content>
+  <div class="login-centering">
+    <ion-card class="login-card ion-padding ion-no-margin">
+      <inc-login
+        [alertMessage]="alertMessage"
+        [loginConfig]="loginConfig"
+        (callLogin)="onCallLogin($event)"
+        (callPasswordReminder)="onCallPasswordReminder($event)"
+      >
+      </inc-login>
+    </ion-card>
+  </div>
+</ion-content>

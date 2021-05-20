@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white"></ion-back-button>
+    </ion-buttons>
+    <ion-title> patient | study-display </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="main-menu" style="color: white"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!--<inc-toolbar title="patient | study-display"></inc-toolbar>-->
+
+<ion-content [fullscreen]="true">
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="fetchPatients($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+      <ng-container *ngIf="studies">
+        <ng-container *ngFor="let study of studies; let i = index">
+          <ion-item id="patient-{{ i }}" button (click)="logPatient(i)">
+            <ion-label>
+              <ion-text color="primary">
+                <h1>{{ study.PatientMainDicomTags.PatientName }}</h1>
+              </ion-text>
+              <ion-text>
+                <p>
+                  <strong>Study ID: </strong
+                  >{{ study.MainDicomTags.StudyDescription }}
+                </p>
+              </ion-text>
+              <ion-text>
+                <p>
+                  <strong>Date of exam: </strong>
+                  {{ study.MainDicomTags.StudyDate }}
+                  <!--                  | date: "dd/MM/yyyy"-->
+                </p>
+              </ion-text>
+              <ion-text>
+                <p><strong>ID: </strong>{{ study.MainDicomTags.StudyID }}</p>
+              </ion-text>
+              <ion-text>
+                <p>
+                  <strong>DOB: </strong>
+                  {{ study.PatientMainDicomTags.PatientBirthDate }}
+                </p>
+              </ion-text>
+            </ion-label>
+          </ion-item>
+        </ng-container>
+      </ng-container>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

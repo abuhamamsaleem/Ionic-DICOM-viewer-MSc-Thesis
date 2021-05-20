@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white"></ion-back-button>
+    </ion-buttons>
+    <ion-title> instance-display </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="main-menu" style="color: white"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="fetchInstances($event)">
+    <ng-container *ngIf="instances">
+      <ng-container *ngFor="let instance of instances; let i = index">
+        <ion-item id="instance-{{ i }}" button (click)="goToViewer(i)">
+          <ion-label>
+            <ion-text color="primary">
+              <h1>Instance {{ instance.MainDicomTags.InstanceNumber }}</h1>
+            </ion-text>
+            <ion-text>
+              <p>
+                <strong>Image Orientation Patient: </strong
+                >{{ instance.MainDicomTags.ImageOrientationPatient }}
+              </p>
+            </ion-text>
+            <ion-text>
+              <p>
+                <strong>SOPInstanceUID: </strong
+                >{{ instance.MainDicomTags.SOPInstanceUID }}
+              </p>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+      </ng-container>
+    </ng-container>
+  </ion-infinite-scroll>
+</ion-content>

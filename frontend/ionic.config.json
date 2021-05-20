@@ -1,0 +1,7 @@
+{
+  "name": "RADIPACS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

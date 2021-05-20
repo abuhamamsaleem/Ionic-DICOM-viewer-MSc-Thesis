@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white"></ion-back-button>
+    </ion-buttons>
+    <ion-title> series-display </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="main-menu" style="color: white"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!--<inc-toolbar title="series-display"></inc-toolbar>-->
+<ion-content [fullscreen]="true">
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="fetchSeries($event)">
+    <ng-container *ngIf="series">
+      <ng-container *ngFor="let set of series; let i = index">
+        <ion-item id="series-{{ i }}" button (click)="logSeries(i)">
+          <ion-label>
+            <ion-text color="primary">
+              <h1>{{ set.MainDicomTags.SeriesDescription }}</h1>
+            </ion-text>
+            <ion-text>
+              <p><strong>ID: </strong>{{ set.ID }}</p>
+            </ion-text>
+            <ion-text>
+              <p><strong>Modality: </strong>{{ set.MainDicomTags.Modality }}</p>
+            </ion-text>
+            <ion-text>
+              <p>
+                <strong>Operators name: </strong
+                >{{ set.MainDicomTags.OperatorsName }}
+              </p>
+            </ion-text>
+            <ion-text>
+              <p>
+                <strong>Orientation: </strong
+                >{{ set.MainDicomTags.ImageOrientationPatient }}
+              </p>
+            </ion-text>
+            <ion-text>
+              <p>
+                <strong>Body part examined: </strong
+                >{{ set.MainDicomTags.BodyPartExamined }}
+              </p>
+            </ion-text>
+            <ion-text>
+              <p>
+                <strong>Protocol Name: </strong
+                >{{ set.MainDicomTags.ProtocolName }}
+              </p>
+            </ion-text>
+            <ion-text>
+              <p>
+                <strong>Station name: </strong
+                >{{ set.MainDicomTags.StationName }}
+              </p>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+      </ng-container>
+    </ng-container>
+  </ion-infinite-scroll>
+</ion-content>
