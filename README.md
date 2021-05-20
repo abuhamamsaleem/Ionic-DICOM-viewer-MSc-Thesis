@@ -77,4 +77,16 @@ Another approach would be using google cloud functions with a VPN (Zero Tier).
   ```
 ### test your orthanc server and nginx, then navigate to the frontend dir, hit npm install then ng serve.
 
+### build the project for web, iOS and android
+
+`ionic build`
+
+`ionic cap add ios`
+
+`ionic cap add android`
+
+`ionic cap copy`
+
+`ionic cap sync`
+
 ### **the backend dir is a skeleton for further development using maven.
